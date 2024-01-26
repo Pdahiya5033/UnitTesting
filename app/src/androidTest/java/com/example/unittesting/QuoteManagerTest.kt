@@ -14,6 +14,7 @@ class QuoteManagerTest {
 
     @Before
     fun setUp() {
+        println("hello")
     }
 
     @After
