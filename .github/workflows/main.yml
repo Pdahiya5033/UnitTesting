@@ -46,8 +46,21 @@ jobs:
         with:
           name: unit_test_report
           path: app/build/reports/tests/testDebugUnitTest/
+#  instrumentation-test:
+#    needs: [unit-test]
+#    runs-on: macos-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v4.1.1
+#
+#      - name: Run espresso tests
+#        uses: reactivecircus/android-emulator-runner@v2
+#        with:
+#          api-level: 33
+#          script: ./gradlew connectedCheck
 
   build:
+    needs: [unit-test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
